@@ -1,0 +1,35 @@
+[project]
+name = "agent-skills-poc"
+version = "0.1.0"
+description = "POC de sistema de agentes con Clean Architecture y Progressive Disclosure"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "openai>=1.0.0",
+    "rich>=13.0.0",
+    "pyyaml>=6.0.0",
+    "duckduckgo-search>=8.1.1",
+    "googlesearch-python>=1.3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "ruff>=0.2.0",
+    "black>=24.0.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "strict"
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
